@@ -4,5 +4,6 @@ from . import views
 
 app_name = 'helfffen'
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.task_list, name='task_list'),
+    path('task/<int:id>', views.task_show, name='task_show'),
 ]

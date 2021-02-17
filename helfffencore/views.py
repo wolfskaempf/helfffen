@@ -1,6 +1,10 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
 
-# Create your views here.
+def task_list(request):
+    context = None
+    return render(request, "helfffencore/task_list.html", context=context)
 
-def home(request):
-    return HttpResponse("Die Seite befindet sich noch im Aufbau. Schau später noch mal vorbei!")
+
+def task_show(request, id):
+    context = None
+    return render(request, "helfffencore/task_show.html", context=context)
