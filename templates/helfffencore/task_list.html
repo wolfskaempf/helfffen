@@ -17,9 +17,13 @@
     <section class="section">
         <div class="container">
             <h1 class="title">Neueste Aufgaben</h1>
-            {% for task in tasks %}
-                {% include "helfffencore/tasks/_task_card.html" %}
-            {% endfor %}
+            {% if tasks %}
+                {% for task in tasks %}
+                    {% include "helfffencore/tasks/_task_card.html" %}
+                {% endfor %}
+            {% else %}
+                <p>Es gibt derzeit keine offenen Aufgaben.</p>
+            {% endif %}
         </div>
     </section>
 

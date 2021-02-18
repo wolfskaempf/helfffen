@@ -1,11 +1,11 @@
-from django.shortcuts import render, get_object_or_404, get_list_or_404
+from django.shortcuts import render, get_object_or_404
 
 from .models import Task
 from .forms import HelpOfferForm
 
 
 def task_list(request):
-    tasks = get_list_or_404(Task)
+    tasks = Task.objects.all()
 
     context = {"tasks": tasks}
 
