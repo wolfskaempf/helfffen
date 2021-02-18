@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'helfffencore.apps.HelfffencoreConfig',
+    'widget_tweaks',  # https://github.com/jazzband/django-widget-tweaks
 ]
 
 MIDDLEWARE = [

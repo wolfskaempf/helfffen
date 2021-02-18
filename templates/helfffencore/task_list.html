@@ -1,0 +1,27 @@
+{% extends "helfffencore/base.html" %}
+{% block title %}helfffen{% endblock %}
+
+{% block content %}
+    <section class="hero is-medium is-primary is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Du bist bereit zu helFFFen?
+                </h1>
+                <h2 class="subtitle">
+                    Hilf uns dabei, die Ziele von Fridays for Future zu erreichen
+                </h2>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Neueste Aufgaben</h1>
+            {% for task in tasks %}
+                {% include "helfffencore/tasks/_task_card.html" %}
+            {% endfor %}
+        </div>
+    </section>
+
+
+{% endblock %}

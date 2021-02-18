@@ -1,0 +1,72 @@
+{% extends "helfffencore/base.html" %}
+
+{% load widget_tweaks %}
+
+{% block title %}{{ task.title }} : helfffen{% endblock %}
+
+{% block content %}
+    {% if sent_offer %}
+        <section class="section">
+            <div class="container">
+                <h1 class="title">Danke, dass du mitmachst! </h1>
+                <h2 class="subtitle">Deine Ansprechperson</h2>
+                <p>{{ task.contact }}</p>
+                <p>Bitte speichere dir die Kontaktinformationen ab, denn sie werden dir nur einmal angezeigt.</p>
+            </div>
+        </section>
+    {% endif %}
+
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Deine ausgewählte Aufgabe</h1>
+            {% include "helfffencore/tasks/_task_card.html" %}
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="title">Damit du helfen kannst, sag uns bitte, wie wir dich kontaktieren können</h2>
+
+            <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+                {{ form.non_field_errors }}
+
+                <div class="field">
+                    <label class="label">Dein Name</label>
+                    <div class="control"><p class="help is-danger">{{ form.name.errors }}</p>
+                        {{ form.name|add_class:"input"|attr:"autofocus" }}</div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Deine Kontaktdaten</label>
+                    <small class="small">Bitte teile uns eine oder mehrere Kontaktmöglichkeiten mit. Schreibe auch dazu,
+                        auf welchem Messenger du kontaktiert werden möchtest.</small>
+                    <div class="control"><p class="help is-danger">{{ form.contact.errors }}</p>
+                        {{ form.contact|add_class:"textarea" }}</div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Zusätzliche Informationen</label>
+                    <small class="small">Beispielsweise: Wie viele Plakate kannst du malen? Wie viel Erfahrung hast du
+                        bereits mit ähnlichen Aufgaben?</small>
+                    <div class="control"><p class="help is-danger">{{ form.name.errors }}</p>
+                        {{ form.additional_information|add_class:"textarea" }}</div>
+                </div>
+
+                <div class="control">
+                    <small class="label">Indem du dieses Formular abschickst, erklärst du dich damit einverstanden, dass
+                        wir deine Daten speichern, um dich zu dieser Aufgabe zu kontaktieren.
+
+                        Um dich zu kontaktieren werden deine Kontaktdaten wie E-Mail oder Telefonnummern auch den
+                        jeweiligen Messenger- oder
+                        E-Mail-Anbietern übermittelt, die du im Kontaktfeld angegeben hast.
+
+                        Du kannst dieses Einverständnis jederzeit widerrufen, indem du eine E-Mail an
+                        augsburg@fridaysforfuture.de
+                        schickst. </small>
+                    <button type="submit" class="button is-link is-success">Abschicken</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+{% endblock %}
