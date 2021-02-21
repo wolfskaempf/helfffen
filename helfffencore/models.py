@@ -1,8 +1,6 @@
 from django.db import models
 
 
-# Create your models here.
-
 class Task(models.Model):
     title = models.CharField(max_length=150)
     number_of_helpers_needed = models.IntegerField()
@@ -28,6 +26,10 @@ class Task(models.Model):
             return number_of_helpers_needed_remaining
         else:
             return 0
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('helfffen:task_show', args=[str(self.id)])
 
 
 class HelpOffer(models.Model):
