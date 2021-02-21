@@ -21,9 +21,11 @@
                 {% if tasks %}
                     <ul>
                         {% for task in tasks %}
-                            <li>
-                                <a href="{% url 'helfffen:task_show' task.id %}">{{ task.title }}</a>
-                            </li>
+                            {% if task.helpers_needed %}
+                                <li>
+                                    <a href="{% url 'helfffen:task_show' task.id %}">{{ task.title }}</a>
+                                </li>
+                            {% endif %}
                         {% endfor %}
                     </ul>
                 {% endif %}
@@ -35,7 +37,9 @@
             <h1 class="title">Neueste Aufgaben</h1>
             {% if tasks %}
                 {% for task in tasks %}
-                    {% include "helfffencore/tasks/_task_card.html" %}
+                    {% if task.helpers_needed %}
+                        {% include "helfffencore/tasks/_task_card.html" %}
+                    {% endif %}
                 {% endfor %}
             {% else %}
                 <p>Es gibt derzeit keine offenen Aufgaben.</p>

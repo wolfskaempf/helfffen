@@ -14,6 +14,21 @@ class Task(models.Model):
     def __str__(self):
         return self.title
 
+    def helpers_needed(self):
+        number_of_helpers = HelpOffer.objects.filter(task=self).count()
+        if (self.number_of_helpers_needed - number_of_helpers) > 0:
+            return True
+        else:
+            return False
+
+    def number_of_helpers_needed_remaining(self):
+        number_of_helpers = HelpOffer.objects.filter(task=self).count()
+        number_of_helpers_needed_remaining = self.number_of_helpers_needed - number_of_helpers
+        if number_of_helpers_needed_remaining > 0:
+            return number_of_helpers_needed_remaining
+        else:
+            return 0
+
 
 class HelpOffer(models.Model):
     task = models.ForeignKey(to=Task, on_delete=models.CASCADE)

@@ -11,8 +11,7 @@
                             um {{ task.created_at|date:'G:i' }}</time>
                         Uhr
                     </p>
-                    <p>Es haben sich bisher {{ task.helpoffer_set.all|length }} Helfer:innen gemeldet und es werden
-                        insgesamt {{ task.number_of_helpers_needed }} gebraucht.</p>
+                    <p>Es werden noch {{ task.number_of_helpers_needed_remaining }} Helfer:innen gebraucht.</p>
 
                 </div>
             </div>
