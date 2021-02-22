@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'helfffen.wsgi.application'
+WSGI_APPLICATION = 'helfffen.wsgidokku.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
