@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+# b5 Taskfile, see https://git.team23.de/build/b5 for details
+
+pre-commit:install() {
+  if (which pre-commit >/dev/null 2>&1); then
+    pre-commit install --install-hooks
+  else
+    b5:warn "-----------------------------------------------------------------"
+    b5:warn "pre-commit is not installed - cannot enable pre-commit hooks!"
+    b5:warn "Recommendation: Install pre-commit ('brew install pre-commit')."
+    b5:warn "-----------------------------------------------------------------"
+  fi
+}
+
+task:install() {
+  template:render --overwrite ask-if-older templates/config.local.yml.jinja2 config.local.yml
+
+  pre-commit:install
+
+  docker:install
+
+  task:poetry install
+}
+
+task:manage.py() {
+  task:poetry run python manage.py "$@"
+
+}
+
+task:makemigrations() {
+  echo "Running makemigrations..."
+  task:poetry run python manage.py makemigrations "$@"
+
+}
+
+task:migrate() {
+  echo "Running migrations..."
+  task:poetry run python manage.py migrate "$@"
+}
+
+task:createsuperuser() {
+  task:poetry run python manage.py createsuperuser "$@"
+}
+
+task:collectstatic() {
+  echo "Collecting staticfiles..."
+  task:poetry run python manage.py collectstatic "$@"
+}
+
+task:update() {
+  docker:update
+
+  task:poetry install
+
+  task:migrate
+}
+
+task:run() {
+  docker:compose up "$@"
+}
+
+task:halt() {
+  docker:compose down "$@"
+}
+
+task:poetry() {
+  docker:command:poetry "$@"
+}
+
+# Linting and Code Style
+
+task:test() {
+  echo "Running tests..."
+  task:poetry run python manage.py test "$@"
+}

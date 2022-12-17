@@ -1,0 +1,61 @@
+[flake8]
+exclude =
+    *.egg-info,
+    .git,
+    .mypy_cache
+    .nox,
+    .pytest_cache,
+    __pycache__,
+    manage.py,
+
+ignore =
+    ANN101,  # ANN101 Missing type annotation for self in method
+    ANN102,  # ANN102 Missing type annotation for cls in class method
+    ANN401,  # ANN401 Disallow typing.Any
+    B008,  # B008 function calls for default values - this is used heavily by pydantic/fastapi
+    B305,  # B305 `.next()` -> false positive: https://github.com/PyCQA/flake8-bugbear/issues/59
+    C901,  # C901 mccabe code complexity check -> postponed
+    D100,  # Missing docstring in public module
+    D101,  # Missing docstring in public class
+    D102,  # Missing docstring in public method
+    D103,  # Missing docstring in public function
+    D104,  # Missing docstring in public package
+    D105,  # Missing docstring in magic method
+    D106,  # Missing docstring in public nested class
+    D107,  # Missing docstring in __init__
+    D200,  # One-line docstring should fit on one line with quotes
+    D201,  # No blank lines allowed before function docstring
+    D202,  # No blank lines allowed after function docstring
+    D203,  # 1 blank line required before class docstring
+    D215,  # Section underline is over-indented
+    D302,  # Deprecated: Use u””” for Unicode docstrings
+    D408,  # Section underline should be in the line following the section’s name
+    D409,  # Section underline should match the length of its name
+    D413,  # Missing blank line after last section
+    D416,  # Section name should end with a colon
+    D417,  # Missing argument descriptions in the docstring
+    D418,  # Function/ Method decorated with @overload shouldn’t contain a docstring
+    E704,  # E704 multiple statements on one line (def)
+    F405, # F405 ... may be undefined or from star import -> We use star imports
+    F821,  # F821 undefined name ... -> Seems to be broken (for type annotations which use function calls as types)
+    N8,  # N8** naming conventions (pep8) -> postponed
+    W503,  # W503 line break before binary operator
+
+
+# * Allow unused imports in __init__.py (F401)
+# * No max line-length and no annotations in tests and fixtures required (E501,ANN)
+# * Special treatment for test fixtures and tests (F811)
+# * No max line-length and no annotations in migrations (E501,ANN)
+# * Allow print statements in management commands (T201)
+per-file-ignores =
+    __init__.py: F401
+    *_fixtures.py: E501,ANN,F811
+    test_*.py: E501,ANN,F811,F401
+    */migrations/*.py: E501,ANN
+
+
+max-complexity = 5
+max-line-length = 115
+
+# Select whitelist (usable during initial linting error resolving)
+# select = A,C,E,F,W,B,B950

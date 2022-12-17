@@ -1,0 +1,32 @@
+# For development purposes, do not use for production
+
+services:
+  postgres:
+    image: docker.io/postgres:15
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    env_file:
+      - ../src/.env
+
+
+  adminer:
+    image: docker.io/adminer
+    restart: always
+
+  helfffen:
+    build:
+      context: ../src
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ../src:/app/src:cached
+    environment:
+      DEBUG: True
+      HELFFFEN_POSTGRES_HOST: postgres
+    env_file:
+      - ../src/.env
+
+    links:
+      - postgres
+
+volumes:
+  postgres:

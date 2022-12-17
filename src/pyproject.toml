@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "helfffen"
+version = "1.0.0"
+description = "HelFFFen allows you to show people how they can help your organisation and let them contact you."
+authors = ["Tom Wolfskämpf <tom@wolfskaempf.de>"]
+license = "AGPL-3.0"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.1.4"
+whitenoise = "^6.2.0"
+psycopg2 = "^2.9.5"
+gunicorn = "^20.1.0"
+django-widget-tweaks = "^1.4.12"
+environs = "^9.5.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

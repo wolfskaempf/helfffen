@@ -1,4 +1,37 @@
-.idea/*
-.venv/*
-db.sqlite3
+# Some conventions
+/_*
+
+# Generated files
 *.pyc
+*.pyo
+__pycache__
+
+# SQLlite
+/src/db.sqlite3
+
+# development environment
+.idea
+*.iml
+*.swp
+.vscode/
+*.code-workspace
+
+# Single .env files
+.env
+.envrc
+
+# Build files
+/build/Taskfile.local
+/build/local.yml
+/build/config.local.yml
+/build/docker-compose.override.yml
+
+# Package dirs
+/src/.venv/
+/src/node_modules/
+
+# webpack dist
+/src/team23bytes/static
+
+# macOS
+*.DS_Store

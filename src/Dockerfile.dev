@@ -1,0 +1,31 @@
+FROM docker.io/python:3.11-alpine
+
+
+# Install system dependencies needed during development
+RUN apk add --no-cache postgresql-libs gcc musl-dev postgresql-dev
+
+
+
+# Setup pipx to be accessible by all users
+ENV PIPX_HOME=/app/.local/pipx \
+    PIPX_BIN_DIR=/app/.local/bin \
+    PATH=/app/.local/bin:$PATH
+
+# Install pipx and poetry
+RUN python3 -m pip install pipx
+RUN pipx install poetry
+
+# Setup poetry to use /app/src/.venv as path
+RUN poetry config virtualenvs.in-project true
+
+# Set WORKDIR
+WORKDIR /app/src
+
+# Set user and group id to default non-root user
+USER 1000:1000
+
+ENTRYPOINT ["poetry", "run"]
+CMD python manage.py runserver 0.0.0.0:8000
+
+# Mark port 8000 as exposed
+EXPOSE 8000

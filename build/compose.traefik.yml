@@ -1,0 +1,27 @@
+# For development purposes, do not use for production
+
+services:
+  helfffen:
+    networks:
+      - default
+      - traefik_gateway
+    environment:
+      CSRF_TRUSTED_ORIGINS: https://helfffen.helfffen.t23dev
+    labels:
+      - traefik.enable=true
+      - traefik.http.services.${COMPOSE_PROJECT_NAME}_helfffen.loadbalancer.server.port=8000
+      - traefik.http.routers.${COMPOSE_PROJECT_NAME}_helfffen.tls=true
+
+  adminer:
+    networks:
+      - default
+      - traefik_gateway
+    labels:
+      - traefik.enable=true
+      - traefik.http.services.${COMPOSE_PROJECT_NAME}_adminer.loadbalancer.server.port=8080
+      - traefik.http.routers.${COMPOSE_PROJECT_NAME}_adminer.tls=true
+
+networks:
+  default:
+  traefik_gateway:
+    external: true

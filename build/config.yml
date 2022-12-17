@@ -1,0 +1,11 @@
+version: 1.3.2
+project:
+  name: helfffen
+  key: helfffen
+modules:
+  docker:
+    commands:
+      poetry:
+        service: helfffen
+        bin: poetry
+  template:
