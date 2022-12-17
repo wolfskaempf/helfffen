@@ -30,8 +30,5 @@ __pycache__
 /src/.venv/
 /src/node_modules/
 
-# webpack dist
-/src/team23bytes/static
-
 # macOS
 *.DS_Store
