@@ -7,7 +7,8 @@
 __pycache__
 
 # SQLlite
-/src/db.sqlite3
+/src/persistent_db
+db.sqlite3
 
 # development environment
 .idea

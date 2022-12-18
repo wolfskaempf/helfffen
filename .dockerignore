@@ -1,3 +1,4 @@
 ./src/.venv
 ./src/.env
 ./src/example.env
+./src/persistent_db

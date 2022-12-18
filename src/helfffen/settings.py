@@ -68,11 +68,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'helfffen.wsgi.application'
 
 # Database
-if env.bool("USE_SQLITE", False):
+if env.bool("HELFFFEN_USE_SQLITE", False):
+    os.makedirs(BASE_DIR / "persistent_db", exist_ok=True)
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
-            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+            "NAME": BASE_DIR / "persistent_db" / "db.sqlite3",
         },
     }
 else:
