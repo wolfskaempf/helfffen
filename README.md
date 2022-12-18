@@ -23,7 +23,7 @@ Instantly run a local instance of `helfffen` using `podman`, `docker` or any oth
 
 First, start the container.
 ```bash
-docker run --rm -e HELFFFEN_USE_SQLITE=True -e ALLOWED_HOSTS=localhost -e HELFFFEN_CSRF_TRUSTED_ORIGINS=http://localhost:8082 -v helfffen-db:/app/src/persistent_db --name helfffen-localhost -p 8082:80 ghcr.io/wolfskaempf/helfffen:latest
+docker run --rm -e HELFFFEN_USE_SQLITE=True -e HELFFFEN_ALLOWED_HOSTS=localhost -e HELFFFEN_CSRF_TRUSTED_ORIGINS=http://localhost:8082 -v helfffen-db:/app/src/persistent_db --name helfffen-localhost -p 8082:80 ghcr.io/wolfskaempf/helfffen:latest
 ```
 
 Then, in a separate shell window you'll need to run database migrations to initialise the SQLite database and create an administrative account by running the following command.
