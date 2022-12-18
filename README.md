@@ -1,5 +1,8 @@
-# helfffen
-HelFFFen allows you to show people how they can help your organisation and let them contact you.
+# `helfffen`
+`helfffen` allows you to show people how they can help your organisation and let them contact you.
+
+`helfen` is a German verb that translates to `to help`. The three `f`s play on the original audience for this project: 
+People who would like to help Fridays for Future (FFF) with predefined and fixed-scope tasks. 
 
 # Features
 - Tasks overview 📝
@@ -31,6 +34,10 @@ Then, in a separate shell window you'll need to run database migrations to initi
 ```bash
 docker exec -i -t helfffen-localhost /bin/sh -c "python manage.py migrate && python manage.py createsuperuser"
 ```
+
+Now you can access your local instance at http://localhost:8082/ and the administrative area at http://localhost:8082/admin/
+
+If you have any feedback, do not hesitate to contact me or open an issue.
 
 # Deploy using Caprover
 [Caprover](https://caprover.com/) is a tool that turns your personal VPS into a Platform as a Service comparable to [dokku](https://dokku.com/) or Heroku.
