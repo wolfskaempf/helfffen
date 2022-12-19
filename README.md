@@ -1,10 +1,10 @@
 # `helfffen`
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/wolfskaempf/helfffen/build-container-image.yml?branch=main)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/wolfskaempf/helfffen?color=success)
-![License](https://img.shields.io/github/license/wolfskaempf/helfffen?color=success)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/wolfskaempf/helfffen/build-container-image.yml?branch=main)](https://github.com/wolfskaempf/helfffen/actions/workflows/build-container-image.yml)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/wolfskaempf/helfffen?color=success)](https://github.com/wolfskaempf/helfffen/releases)
+[![License](https://img.shields.io/github/license/wolfskaempf/helfffen?color=success)](./LICENSE)
 ![pre-commit enabled](https://img.shields.io/badge/pre--commit-enabled-success?logo=pre-commit)
-![OCI Container image available](https://img.shields.io/badge/Container%20Image-available-success?logo=Open%20Containers%20Initiative)
-![Mastodon Follow](https://img.shields.io/mastodon/follow/109321997385535274?domain=https%3A%2F%2Fclimatejustice.social&style=social)
+[![OCI Container image available](https://img.shields.io/badge/Container%20Image-available-success?logo=Open%20Containers%20Initiative)](https://github.com/wolfskaempf/helfffen/pkgs/container/helfffen)
+[![Mastodon Follow](https://img.shields.io/mastodon/follow/109321997385535274?domain=https%3A%2F%2Fclimatejustice.social&style=social)](https://climatejustice.social/@wolfskaempf)
 
 `helfffen` allows you to show people how they can help your organisation and let them contact you.
 
