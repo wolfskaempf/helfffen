@@ -23,6 +23,9 @@ DEBUG = env.bool("HELFFFEN_DEBUG", False)
 ALLOWED_HOSTS = env.list("HELFFFEN_ALLOWED_HOSTS", [])
 CSRF_TRUSTED_ORIGINS = env.list("HELFFFEN_CSRF_TRUSTED_ORIGINS", [])
 
+# Primary Key configuration
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 # Application definition
 
 INSTALLED_APPS = [
