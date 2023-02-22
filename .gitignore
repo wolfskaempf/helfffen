@@ -23,9 +23,9 @@ db.sqlite3
 
 # Build files
 /build/Taskfile.local
-/build/local.yml
-/build/config.local.yml
-/build/docker-compose.override.yml
+/build/local.yaml
+/build/config.local.yaml
+/build/docker-compose.override.yaml
 
 # Package dirs
 /src/.venv/
