@@ -45,6 +45,6 @@ ENV WEB_CONCURRENCY=4 \
     WORKER_MAX_REQUESTS=1000 \
     WORKER_LOGLEVEL=warning
 
-ENTRYPOINT ["/sbin/tini", "--"]
+ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["gunicorn", "helfffen.wsgi", "--bind=0.0.0.0:80"]
 EXPOSE 80
