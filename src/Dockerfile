@@ -1,4 +1,4 @@
-FROM docker.io/python:3.11-alpine
+FROM docker.io/python:3.11
 
 # Setup pipx to be accessible by all users
 ENV PIPX_HOME=/app/.local/pipx \
@@ -22,11 +22,12 @@ RUN poetry config virtualenvs.in-project true
 COPY ./src/pyproject.toml ./src/poetry.lock /app/src/
 
 # Install system dependencies including those needed for psycopg2 and then remove uneeded ones
-RUN \
- apk add --no-cache postgresql-libs tini && \
- apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev && \
- poetry install --without dev && \
- apk --purge del .build-deps
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y tini && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN poetry install --without dev
 
 # Setup ENV
 ENV VENV_PATH="/app/src/.venv"
