@@ -21,7 +21,7 @@ RUN poetry config virtualenvs.in-project true
 # e.g. docker build -t helfffen:dev -f src/Dockerfile .
 COPY ./src/pyproject.toml ./src/poetry.lock /app/src/
 
-# Install system dependencies including those needed for psycopg2 and then remove uneeded ones
+# Install system dependencies
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y tini && \
