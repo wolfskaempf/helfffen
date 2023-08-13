@@ -13,6 +13,7 @@ gunicorn = "^21.2.0"
 django-widget-tweaks = "^1.4.12"
 environs = "^9.5.0"
 psycopg2 = "^2.9.5"
+setuptools = "^68.0.0"
 
 [tool.poetry.dev-dependencies]
 
