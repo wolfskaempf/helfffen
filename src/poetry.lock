@@ -16,17 +16,17 @@ tests = ["mypy (>=0.800)", "pytest", "pytest-asyncio"]
 
 [[package]]
 name = "django"
-version = "4.2.5"
+version = "5.0.1"
 description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.10"
 files = [
-    {file = "Django-4.2.5-py3-none-any.whl", hash = "sha256:b6b2b5cae821077f137dc4dade696a1c2aa292f892eca28fa8d7bfdf2608ddd4"},
-    {file = "Django-4.2.5.tar.gz", hash = "sha256:5e5c1c9548ffb7796b4a8a4782e9a2e5a3df3615259fc1bfd3ebc73b646146c1"},
+    {file = "Django-5.0.1-py3-none-any.whl", hash = "sha256:f47a37a90b9bbe2c8ec360235192c7fddfdc832206fcf618bb849b39256affc1"},
+    {file = "Django-5.0.1.tar.gz", hash = "sha256:8c8659665bc6e3a44fefe1ab0a291e5a3fb3979f9a8230be29de975e57e8f854"},
 ]
 
 [package.dependencies]
-asgiref = ">=3.6.0,<4"
+asgiref = ">=3.7.0,<4"
 sqlparse = ">=0.3.1"
 tzdata = {version = "*", markers = "sys_platform == \"win32\""}
 
@@ -211,4 +211,4 @@ brotli = ["Brotli"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "2522825705fc67794e28ffb90dab1276ad03e8fb14797afa5acd8e4ddcd6a433"
+content-hash = "50043a394d949b334d5a776c2aed223c836bf5250785ae2ef0c6e3b12f779ea4"
