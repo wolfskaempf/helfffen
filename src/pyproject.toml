@@ -7,7 +7,7 @@ license = "AGPL-3.0"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-django = "^4.2.5"
+django = "^5.0.0"
 whitenoise = ">=6.5.0"
 gunicorn = ">=22.0.0"
 django-widget-tweaks = ">=1.4.12"
