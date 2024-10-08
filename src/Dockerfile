@@ -1,4 +1,4 @@
-FROM docker.io/python:3.11
+FROM docker.io/python:3.13
 
 # Setup pipx to be accessible by all users
 ENV PIPX_HOME=/app/.local/pipx \
